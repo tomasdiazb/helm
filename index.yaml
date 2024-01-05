@@ -1,0 +1,14 @@
+apiVersion: v1
+entries:
+  itlg-weiv-api:
+  - apiVersion: v2
+    appVersion: 1.16.0
+    created: "2024-01-05T15:30:57.9754086-03:00"
+    description: A Helm chart for Kubernetes
+    digest: 968df6116b242f7c580acae0b8e1004ab1f54dbb0f49e1a1530aaa3e76a4d0e4
+    name: itlg-weiv-api
+    type: application
+    urls:
+    - itlg-weiv-api-0.1.0.tgz
+    version: 0.1.0
+generated: "2024-01-05T15:30:57.9742218-03:00"

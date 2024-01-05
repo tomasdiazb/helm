@@ -1,0 +1,44 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata: 
+  name: itlg-weiv-api-deployment
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: itlg-weiv-api
+  template:
+    metadata:
+      labels:
+        app: itlg-weiv-api
+    spec:
+      imagePullSecrets:
+        - name: regcred-adminsitiositlg
+      containers:
+        - name: itlg-weiv-api
+          image: adminsitiositlg/itlg-weiv-api:b043535
+          ports:
+            - containerPort: 8080
+          env:
+            # - name: mobbex_webhook
+            #   value: https://weiv-dev.itlg.io/back/weiv/mobbex/webhook
+            # - name: mobbexxaccesstoken
+            #   value: d31f0721-2f85-44e7-bcc6-15e19d1a53cc
+            # - name: mobbex_x_api_key
+            #   value: zJ8LFTBX6Ba8D611e9io13fDZAwj0QmKO1Hn1yIj
+            # - name: mobbex_return_url
+            #   value: https://weivapp.page.link/jdF1
+            # - name: mobbex_timeout
+            #   value: "30"
+            # - name: spring.datasource.url
+            #   value: jdbc:postgresql://10.20.0.3:5432/weiv-dev
+            # - name: spring.datasource.driver-class-name
+            #   value: org.postgresql.Driver
+            # - name: spring.datasource.username
+            #   value: postgres
+            # - name: spring.datasource.password
+            #   value: DBitlgp0576r35
+            # - name: spring.cloud.gcp.storage.bucket-name
+            #   value: weiv-media-dev
+            # - name: spring.cloud.gcp.credentials.location
+            #   value: file:/home/application/java/gcs-service-account-weis.json

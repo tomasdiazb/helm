@@ -1,0 +1,58 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: itlg-weiv-api
+data:
+  application.properties: |-
+
+    server.servlet.context-path=/weiv
+
+    ###### Spring DATASOURCE (DataSourceAutoConfiguration & DataSourceProperties)
+    spring.datasource.url=jdbc:postgresql://10.20.0.3:5432/weiv-dev
+    spring.datasource.driver-class-name=org.postgresql.Driver
+    spring.datasource.username=postgres
+    spring.datasource.password=DBitlgp0576r35
+    spring.jpa.properties.hibernate.dialect=org.hibernate.dialect.MySQLDialect
+    spring.cloud.gcp.storage.bucket-name=weiv-media-dev
+    spring.cloud.gcp.credentials.location=file:/home/application/java/gcs-service-account-weis.json
+
+    # The SQL dialect makes Hibernate generate better SQL for the chosen database
+    # use by defoult
+    # spring.jpa.properties.hibernate.dialect=org.hibernate.dialect.PostgreSQL11Dialect
+    # spring.jpa.database-platform=org.hibernate.dialect.PostgreSQL11Dialect
+
+    # Hibernate ddl auto (create, create-drop, validate, update)
+    spring.jpa.hibernate.ddl-auto=none
+    spring.jpa.hibernate.naming.physical_naming_strategy=com.baeldung.hibernate.namingstrategy.CustomPhysicalNamingStrategy
+    spring.jpa.properties.hibernate.jdbc.lob.non_contextual_creation=true
+    spring.jpa.properties.hibernate.temp.use_jdbc_metadata_defaults=false
+    spring.jpa.show-sql=true
+
+    mobbex_webhook=https://weiv-dev.itlg.io/back/weiv/mobbex/webhook
+    mobbexxaccesstoken=d31f0721-2f85-44e7-bcc6-15e19d1a53cc
+    mobbex_x_api_key=zJ8LFTBX6Ba8D611e9io13fDZAwj0QmKO1Hn1yIj
+    mobbex_return_url=https://weivapp.page.link/jdF1
+    mobbex_timeout="30"
+
+    # - name: mobbex_webhook
+    #   value: https://weiv-dev.itlg.io/back/weiv/mobbex/webhook
+    # - name: mobbexxaccesstoken
+    #   value: d31f0721-2f85-44e7-bcc6-15e19d1a53cc
+    # - name: mobbex_x_api_key
+    #   value: zJ8LFTBX6Ba8D611e9io13fDZAwj0QmKO1Hn1yIj
+    # - name: mobbex_return_url
+    #   value: https://weivapp.page.link/jdF1
+    # - name: mobbex_timeout
+    #   value: "30"
+    # - name: spring.datasource.url
+    #   value: jdbc:postgresql://10.20.0.3:5432/weiv-dev
+    # - name: spring.datasource.driver-class-name
+    #   value: org.postgresql.Driver
+    # - name: spring.datasource.username
+    #   value: postgres
+    # - name: spring.datasource.password
+    #   value: DBitlgp0576r35
+    # - name: spring.cloud.gcp.storage.bucket-name
+    #   value: weiv-media-dev
+    # - name: spring.cloud.gcp.credentials.location
+    #   value: file:/home/application/java/gcs-service-account-weis.json
